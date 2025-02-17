@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,19 +20,17 @@
 			<th>제조사</th>
 			<th>관리</th>
 		</tr>
-
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>			
+			<td>sddd</td>
+			<td>ddd</td>
+			<td>ddd</td>
+			<td>ddd</td>
+			<td>dddd</td>			
 			<td>				
 				<a href="#">수정</a>
 				<a href="#">삭제</a>
 			</td>
 		</tr>
-
 	</table>
 	
 	<h4>주문하기</h4>
@@ -60,3 +57,13 @@
 	</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

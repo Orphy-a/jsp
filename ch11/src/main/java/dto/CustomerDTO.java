@@ -1,18 +1,18 @@
-package DTO;
+package dto;
 
 public class CustomerDTO {
-	private String custid;
+	
+	private String custId;
 	private String name;
 	private String hp;
 	private String addr;
 	private String rdate;
 	
-	
-	public String getCustid() {
-		return custid;
+	public String getCustId() {
+		return custId;
 	}
-	public void setCustid(String custid) {
-		this.custid = custid;
+	public void setCustId(String custId) {
+		this.custId = custId;
 	}
 	public String getName() {
 		return name;
@@ -38,14 +38,12 @@ public class CustomerDTO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
-	
 	@Override
 	public String toString() {
-		return "CustomerDTO [custid=" + custid + ", name=" + name + ", hp=" + hp + ", addr=" + addr + ", rdate=" + rdate
+		return "CustomerDTO [custId=" + custId + ", name=" + name + ", hp=" + hp + ", addr=" + addr + ", rdate=" + rdate
 				+ "]";
 	}
 	
 	
-	
-	
+
 }

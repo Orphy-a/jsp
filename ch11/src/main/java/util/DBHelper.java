@@ -14,40 +14,39 @@ import javax.sql.DataSource;
 public class DBHelper {
 
 	protected Connection conn = null;
-	protected PreparedStatement psmt = null;
 	protected Statement stmt = null;
+	protected PreparedStatement psmt = null;
 	protected ResultSet rs = null;
 	
 	protected Connection getConnection() throws NamingException, SQLException {
 		
 		Context initCtx = new InitialContext();
-		Context ctx = (Context)initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource)ctx.lookup("jdbc/shop");
+		Context ctx = (Context) initCtx.lookup("java:comp/env");
+		DataSource ds = (DataSource) ctx.lookup("jdbc/shop");
 		
-		return ds.getConnection();
-		
+		return ds.getConnection();		
 	}
 	
 	protected void closeAll() throws SQLException {
 		
-		if(rs!=null) {
+		if(rs != null) {
 			rs.close();
 		}
-		
-		if(stmt !=null) {
+	
+		if(stmt != null) {
 			stmt.close();
 		}
 		
-		if(psmt!=null) {
+		if(psmt != null) {
 			psmt.close();
 		}
 		
-		if(conn!=null) {
+		if(conn != null) {
 			conn.close();
 		}
 		
-		
 	}
+	
 	
 	
 }

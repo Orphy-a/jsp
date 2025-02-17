@@ -2,7 +2,10 @@ package controller.customer;
 
 import java.io.IOException;
 
-import DTO.CustomerDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import dto.CustomerDTO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,11 +27,13 @@ public class RegisterContoller extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		logger.trace("registerController logger trace...");
-		logger.debug("registerController logger debug...");
-		logger.info("registerController logger info...");
-		logger.warn("registerController logger warn...");
-		logger.error("registerController logger error...");
+		// 로그 출력
+		logger.trace("RegisterContoller logger trace...");
+		logger.debug("RegisterContoller logger debug...");
+		logger.info("RegisterContoller logger info...");
+		logger.warn("RegisterContoller logger warn...");
+		logger.error("RegisterContoller logger error...");
+		
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/shop/customer/register.jsp");
 		dispatcher.forward(req, resp);
@@ -43,7 +48,7 @@ public class RegisterContoller extends HttpServlet {
 		String addr = req.getParameter("addr");
 		
 		CustomerDTO dto = new CustomerDTO();
-		dto.setCustid(custId);
+		dto.setCustId(custId);
 		dto.setName(name);
 		dto.setHp(hp);
 		dto.setAddr(addr);
@@ -53,3 +58,14 @@ public class RegisterContoller extends HttpServlet {
 		resp.sendRedirect("/ch11/shop/customer/register.do");		
 	}	
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,4 @@
-
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,16 +21,25 @@
 			<th>주문일자</th>
 		</tr>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>dfdfdf</td>
+			<td>dfdfdf</td>
+			<td>dfdfdf</td>
+			<td>ddd</td>
+			<td>ddd</td>
+			<td>ddd</td>
+			<td>ddd</td>
 		</tr>
 	</table>
 	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
