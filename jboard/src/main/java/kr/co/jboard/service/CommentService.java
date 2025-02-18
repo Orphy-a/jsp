@@ -2,8 +2,8 @@ package kr.co.jboard.service;
 
 import java.util.List;
 
-import kr.co.jboard.DAO.*;
-import kr.co.jboard.DTO.*;
+import kr.co.jboard.dao.CommentDAO;
+import kr.co.jboard.dto.CommentDTO;
 
 public enum CommentService {
 	

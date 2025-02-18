@@ -52,7 +52,7 @@
         </main>
         <footer>
             <p>
-                <span class="copyright">Copyrightⓒ 오재영</span>
+                <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
                 <span class="version">v1.0.1</span>
             </p>
         </footer>

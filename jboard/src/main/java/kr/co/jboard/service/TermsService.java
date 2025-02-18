@@ -2,12 +2,12 @@ package kr.co.jboard.service;
 
 import java.util.List;
 
-import kr.co.jboard.DAO.*;
-import kr.co.jboard.DTO.*;
+import kr.co.jboard.dao.TermsDAO;
+import kr.co.jboard.dto.TermsDTO;
 
 public enum TermsService {
 	
-	INSTANCE;	
+	INSTANCE;
 	private TermsDAO dao = TermsDAO.getInstance();
 	
 	public void registeArticle(TermsDTO dto) {

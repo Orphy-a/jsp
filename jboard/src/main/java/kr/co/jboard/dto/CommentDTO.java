@@ -1,4 +1,4 @@
-package kr.co.jboard.DTO;
+package kr.co.jboard.dto;
 
 public class CommentDTO {
 	private int cno;

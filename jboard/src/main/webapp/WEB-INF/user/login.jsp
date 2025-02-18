@@ -1,8 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<script>
+	const result = ${result};
+	
+	if(result == 100){
+		alert("로그인 실패");
+	}else if(result == 101){
+		alert("정상적으로 로그아웃 되었습니다.");
+	}
+	
+</script>
+
 <main id="user">
     <section class="login">
-        <form action="../article/list.html">                    
+        <form action="/jboard/user/login.do" method="post">                    
             <table border="0">
                 <tr>
                     <td><img src="/jboard/images/login_ico_id.png" alt="아이디"/></td>
@@ -29,4 +40,4 @@
         </div>
     </section>
 </main>
-<%@ include file="./_footer.jsp" %>
+<%@ include file="./_footer.jsp" %>       

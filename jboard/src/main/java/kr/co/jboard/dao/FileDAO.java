@@ -1,8 +1,8 @@
-package kr.co.jboard.DAO;
+package kr.co.jboard.dao;
 
 import java.util.List;
 
-import kr.co.jboard.DTO.*;
+import kr.co.jboard.dto.FileDTO;
 import kr.co.jboard.util.DBHelper;
 
 public class FileDAO extends DBHelper {

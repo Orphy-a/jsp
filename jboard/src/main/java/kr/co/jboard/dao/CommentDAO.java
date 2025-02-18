@@ -1,9 +1,8 @@
-package kr.co.jboard.DAO;
+package kr.co.jboard.dao;
 
 import java.util.List;
 
-import kr.co.jboard.DTO.*;
-
+import kr.co.jboard.dto.CommentDTO;
 import kr.co.jboard.util.DBHelper;
 
 public class CommentDAO extends DBHelper {
@@ -22,7 +21,6 @@ public class CommentDAO extends DBHelper {
 	}
 	
 	public List<CommentDTO> selectAllComment() {
-		
 		return null;
 	}
 	

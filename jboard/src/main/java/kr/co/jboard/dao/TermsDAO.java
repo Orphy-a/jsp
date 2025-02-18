@@ -1,8 +1,8 @@
-package kr.co.jboard.DAO;
+package kr.co.jboard.dao;
 
 import java.util.List;
 
-import kr.co.jboard.DTO.*;
+import kr.co.jboard.dto.TermsDTO;
 import kr.co.jboard.util.DBHelper;
 import kr.co.jboard.util.SQL;
 

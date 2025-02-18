@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import kr.co.jboard.DTO.*;
+import kr.co.jboard.dto.TermsDTO;
 import kr.co.jboard.service.TermsService;
 
 @WebServlet("/user/terms.do")
