@@ -20,8 +20,8 @@
 		</tr>
 		<c:forEach var="dto" items="${dtos}"><!-- requestScope 생략 -->
 			<tr>
-				<td>${dto.getUid()}</td>
-				<td>${dto.getName()}</td>
+				<td>${dto.uid}</td>
+				<td>${dto.name}</td>
 				<td>${dto.hp}</td>
 				<td>${dto.age}</td>
 				<td>

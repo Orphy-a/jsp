@@ -2,22 +2,26 @@
 <%@ include file="./_header.jsp" %>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/jboard/js/daumPostcode.js"></script>
+<script src="/jboard/js/validation.js"></script>
+
 <main id="user">
     <section class="register">
-        <form action="/jboard/user/register.do" method="post">
+        <form action="/jboard/user/register.do" name="formRegister" method="post">
             <h2 class="tit">사이트 이용정보 입력</h2>
             <table border="1">                        
                 <tr>
                     <td>아이디</td>
                     <td>
                         <input type="text" name="uid" placeholder="아이디 입력"/>
-                        <button type="button"><img src="../images/chk_id.gif" alt="중복확인"/></button>
+                        <button type="button" id="btnCheckUid"><img src="../images/chk_id.gif" alt="중복확인"/></button>
                         <span class="uidResult"></span>
                     </td>
                 </tr>
                 <tr>
                     <td>비밀번호</td>
-                    <td><input type="password" name="pass1" placeholder="비밀번호 입력"/></td>
+                    <td><input type="password" name="pass1" placeholder="비밀번호 입력"/>
+                		<span class="passResult"></span>
+                	</td>
                 </tr>
                 <tr>
                     <td>비밀번호 확인</td>
@@ -30,7 +34,8 @@
                 <tr>
                     <td>이름</td>
                     <td>
-                        <input type="text" name="name" placeholder="이름 입력"/>                        
+                        <input type="text" name="name" placeholder="이름 입력"/>
+                        <span class="nameResult"></span>                       
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +43,7 @@
                     <td>
                         <p class="nickInfo">공백없는 한글, 영문, 숫자 입력</p>
                         <input type="text" name="nick" placeholder="별명 입력"/>
-                        <button type="button"><img src="../images/chk_id.gif" alt="중복확인"/></button>
+                        <button type="button" id="btnCheckNick"><img src="../images/chk_id.gif" alt="중복확인"/></button>
                         <span class="nickResult"></span>
                     </td>
                 </tr>
@@ -46,16 +51,20 @@
                     <td>이메일</td>
                     <td>
                         <input type="email" name="email" placeholder="이메일 입력"/>
-                        <button type="button"><img src="../images/chk_auth.gif" alt="인증번호 받기"/></button>
+                        <button type="button" id="btnSendEmail"><img src="../images/chk_auth.gif" alt="인증번호 받기"/></button>
+                        <span class="emailResult"></span>
                         <div class="auth">
                             <input type="text" name="auth" placeholder="인증번호 입력"/>
-                            <button type="button"><img src="../images/chk_confirm.gif" alt="확인"/></button>
+                            <button type="button" id="btnAuthEmail"><img src="../images/chk_confirm.gif" alt="확인"/></button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>휴대폰</td>
-                    <td><input type="text" name="hp" placeholder="휴대폰 입력"/></td>
+                    <td>
+	                    <input type="text" name="hp" placeholder="휴대폰 입력"/>
+	                    <span class="hpResult"></span>
+                    </td>
                 </tr>
                 <tr>
                     <td>주소</td>
