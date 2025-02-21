@@ -36,8 +36,8 @@ public class User2Service {
 		dao.update_user2(dto);
 	}
 	
-	public void removeuser2(User2DTO dto) {
-		dao.delete_user(dto);
+	public void removeuser2(String uid) {
+		dao.delete_user(uid);
 	}
 	
 	

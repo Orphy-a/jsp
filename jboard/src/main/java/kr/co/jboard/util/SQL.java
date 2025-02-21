@@ -7,12 +7,10 @@ public class SQL {
 	
 	// user
 	public static final String SELECT_COUNT_USER = "select COUNT(*) from `user` ";
-	public static final String WHERE_UID = "where `uid` = ?";
-	public static final String WHERE_NICK = "where `nick` = ?";
-	public static final String WHERE_EMAIL = "where `email` = ?";
-	public static final String WHERE_HP = "where `hp` = ?";
-	
-	
+	public static final String WHERE_UID = "where `uid`=?";
+	public static final String WHERE_NICK = "where `nick`=?";
+	public static final String WHERE_EMAIL = "where `email`=?";
+	public static final String WHERE_HP = "where `hp`=?";
 	
 	public static final String SELECT_USER = "select * from `user` where `uid`=? and `pass`=SHA2(?, 256)";
 	public static final String INSERT_USER = "insert into `user` set "
@@ -27,14 +25,34 @@ public class SQL {
 											+ "`addr2`=?,"
 											+ "`regip`=?,"
 											+ "`regDate`=NOW()";
-	
-	
+
+	// article
+	public static final String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `article`";
 	public static final String INSERT_ARTICLE = "insert into `article` set "
 													+ "`title`=?,"
 													+ "`content`=?,"
+													+ "`file`=?,"
 													+ "`writer`=?,"
 													+ "`regip`=?,"
 													+ "`wdate`=NOW()";
+	
+	
+	// file
+	public static final String INSERT_FILE = "insert into `file` set "
+												+ "`ano`=?,"
+												+ "`oName`=?,"
+												+ "`sName`=?,"
+												+ "`rdate`=NOW()";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

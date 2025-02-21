@@ -7,6 +7,8 @@
 		alert("로그인 실패");
 	}else if(result == 101){
 		alert("정상적으로 로그아웃 되었습니다.");
+	}else if(result == 102){
+		alert("로그인을 먼저 하셔야 합니다.")
 	}
 	
 </script>

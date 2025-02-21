@@ -52,6 +52,7 @@ public class LoginController extends HttpServlet {
 
 			// 게시판 목록 이동
 			resp.sendRedirect("/jboard/article/list.do");
+			
 		} else {
 			// 회원이 아닐 경우 다시 로그인 페이지 이동
 			resp.sendRedirect("/jboard/user/login.do?result=100");

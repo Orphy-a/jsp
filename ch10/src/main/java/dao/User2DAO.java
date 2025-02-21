@@ -127,20 +127,19 @@ public class User2DAO extends DBHelper {
 		
 	}
 	
-	public void delete_user(User2DTO dto) {
+	public void delete_user(String uid) {
 		
 		try {
 			conn = getConnection();
 			PreparedStatement psmt = conn.prepareStatement(SQL.DELETE_USER2);
-			psmt.setString(1, dto.getUid());
-			psmt.setString(2, dto.getName());
-			psmt.setString(3, dto.getBirth());
-			psmt.setString(4, dto.getAddr());
+			psmt.setString(1, uid);
+			psmt.executeUpdate();
+			closeAll();
 			
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 	}

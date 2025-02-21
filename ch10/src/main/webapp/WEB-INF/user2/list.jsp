@@ -14,8 +14,8 @@
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>
-			<th>휴대폰</th>
-			<th>나이</th>
+			<th>생년월일</th>
+			<th>주소</th>
 			<th>관리</th>
 		</tr>
 		<c:forEach var="dto" items="${dtos}"><!-- requestScope 생략 -->
@@ -25,8 +25,8 @@
 				<td>${dto.getBirth()}</td>
 				<td>${dto.getAddr()}</td>
 				<td>
-					<a href="/ch10/user2/modify.jsp?uid=${dto.uid}">수정</a>
-					<a href="/ch10/user2/remove.jsp?uid=${dto.uid}">삭제</a>
+					<a href="/ch10/user2/modify.do?uid=${dto.uid}">수정</a>
+					<a href="/ch10/user2/remove.do?uid=${dto.uid}">삭제</a>
 				</td>
 			</tr>
 		</c:forEach>

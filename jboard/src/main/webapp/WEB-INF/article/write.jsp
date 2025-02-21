@@ -14,6 +14,20 @@
                 <nav>
                     <h1>글쓰기</h1>
                 </nav>
+                <!-- 
+                	파일 업로드 작업 과정
+                	1) Tomcat 설정
+                	- Servers > context.xml > allowCasualMultipartParsing = "True" 설정
+                	- Servers > server.xml > maxpostSize="10485760" 설정 (파일크기 설정)
+                	
+                	2) 파일 전송 폼 설정
+                	- form 태그 enctype="multipart/form-data" 설정
+                	
+                	3)업로드 로직 처리
+                	- req.getParts() 파일 업로드 수행
+                	
+                
+                 -->
                 <form action="/jboard/article/write.do" method="post" enctype="multipart/form-data">
                 	<input type="hidden" name="writer" value="${sessionScope.sessUser.uid}">
                     <table border="0">
