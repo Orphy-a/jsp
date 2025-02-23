@@ -20,6 +20,17 @@ public class SQL {
 	public static final String UPDATE_USER2 = "update `user2` set `name`=?,`birth`=?,`addr`=? where `uid`=?";
 	public static final String DELETE_USER2 = "delete from `user2` where `uid`=?";
 	
+	public static final String INSERT_USER3 = "insert into `user3` values (?,?,?,?,now())";
+	public static final String SELECT_USER3 = "select * from `user3` where `uid`=?";
+	public static final String SELECT_ALL_USER3 = "select * from `user3`";
+	public static final String UPDATE_USER3 = "update `user3` set `name`=?,`hp`=?,`pos`=? where `uid`=?";
+	public static final String DELETE_USER3 = "delete from `user3` where `uid`=?";
 	
 	
+	public static final String SELECT_ALL_USER4 = "select * from `user4`";
+	public static final String SELECT_USER4 = "select * from `user4` where `prod_no`=?";
+	public static final String UPDATE_USER4 = "update `user4` set `prod_name`=?, `prod_price`=?, `prod_stock`=?, prod_company=? where `prod_no`=?";
+	public static final String INSERT_USER4 = "insert into `user4` value (?,?,?,?,?,now())";
+	public static final String DELETE_USER4 = "delete from `user4` where `prod_no`=?";
+
 }
