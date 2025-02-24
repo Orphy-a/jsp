@@ -2,6 +2,9 @@ package kr.co.jboard.controller.user;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,6 +19,8 @@ import kr.co.jboard.service.UserService;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1270462765653325712L;
 	private UserService service = UserService.INSTANCE;
+	
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -41,6 +46,9 @@ public class LoginController extends HttpServlet {
 		UserDTO dto = new UserDTO();
 		dto.setUid(uid);
 		dto.setPass(pass);
+		
+		
+		
 
 		// 서비스 호출
 		UserDTO userDTO = service.findUser(dto);
@@ -57,5 +65,7 @@ public class LoginController extends HttpServlet {
 			// 회원이 아닐 경우 다시 로그인 페이지 이동
 			resp.sendRedirect("/jboard/user/login.do?result=100");
 		}
+		
+		
 	}
 }

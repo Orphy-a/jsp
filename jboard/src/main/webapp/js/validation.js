@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		const nickResult = document.getElementsByClassName('nickResult')[0];
 		
 		
+		
 		btnCheckNick.onclick = async function(){
 			
 			const value = formRegister.nick.value;

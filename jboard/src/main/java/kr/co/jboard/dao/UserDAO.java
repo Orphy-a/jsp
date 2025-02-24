@@ -37,7 +37,7 @@ public class UserDAO extends DBHelper {
 			psmt.executeUpdate();
 			closeAll();
 		}catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 	
@@ -115,7 +115,7 @@ public class UserDAO extends DBHelper {
 			}
 			closeAll();			
 		}catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		return userDTO;
 	}
