@@ -18,7 +18,7 @@ public class ArticleDAO extends DBHelper {
 	private ArticleDAO() {}
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	public int insertArticle(ArticleDTO dto) {
+	public int insertArticle(ArticleDTO dto) { // 게시글 번호
 		
 		int no = 0;
 		
@@ -46,52 +46,40 @@ public class ArticleDAO extends DBHelper {
 		return no;
 	}
 	
-	
 	public ArticleDTO selectArticle(int no) {
 		return null;
 	}
 	
-	public int selectCountArticle() {
+	public int selectCountArticle() { // 글번호 찾는 코드
 		
 		int total = 0;
-		
 		
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(SQL.SELECT_COUNT_ARTICLE);
-			
 			if(rs.next()) {
 				total = rs.getInt(1);
 			}
 			closeAll();
-			
-		} catch (Exception e) {
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
 		return total;
-		
 	}
-	
-	
-	
 	
 	public List<ArticleDTO> selectAllArticle(int start) {
 		
-		List<ArticleDTO> articles = new ArrayList<>(); 
+		List<ArticleDTO> articles = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.SELECT_ALL_ARTICLE);
 			psmt.setInt(1, start);
-			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				
 				ArticleDTO dto = new ArticleDTO();
-				
 				dto.setNo(rs.getInt(1));
 				dto.setCate(rs.getString(2));
 				dto.setTitle(rs.getString(3));
@@ -102,21 +90,101 @@ public class ArticleDAO extends DBHelper {
 				dto.setWriter(rs.getString(8));
 				dto.setRegip(rs.getString(9));
 				dto.setWdate(rs.getString(10));
-				
+				dto.setNick(rs.getString(11));
 				articles.add(dto);
-				
 			}
-			
-			closeAll();
-			
-			
-		} catch (Exception e) {
+			closeAll();		
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
-		
 		return articles;
 	}
+	
+	public int selectCountArticleBySearch(ArticleDTO articleDTO) {
+		
+		int count = 0;
+		StringBuilder sql = new StringBuilder(SQL.SELECT_COUNT_ARTICLE_FOR_SEARCH);
+		
+		if(articleDTO.getSearchType().equals("title")) {
+			sql.append(SQL.WHERE_FOR_SEARCH_TITLE);
+		}else if(articleDTO.getSearchType().equals("content")) {
+			sql.append(SQL.WHERE_FOR_SEARCH_CONTENT);
+		}else if(articleDTO.getSearchType().equals("writer")) {
+			sql.append(SQL.JOIN_FOR_SEARCH_NICK);
+			sql.append(SQL.WHERE_FOR_SEARCH_WRITER);	
+		}
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql.toString());
+			psmt.setString(1, "%"+articleDTO.getKeyword()+"%");
+			logger.debug(psmt.toString());
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);				
+			}
+			closeAll();
+			
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}		
+		return count;
+	}
+	
+	public List<ArticleDTO> selectAllArticleBySearch(ArticleDTO articleDTO, int start) {
+		
+		List<ArticleDTO> articles = new ArrayList<ArticleDTO>();
+		
+		StringBuilder sql = new StringBuilder(SQL.SELECT_ALL_ARTICLE_BY_SEARCH);
+		
+		if(articleDTO.getSearchType().equals("title")) {
+			sql.append(SQL.WHERE_FOR_SEARCH_TITLE);
+			sql.append(SQL.ORDER_FOR_SEARCH);
+			sql.append(SQL.LIMIT_FOR_SEARCH);			
+		}else if(articleDTO.getSearchType().equals("content")) {
+			sql.append(SQL.WHERE_FOR_SEARCH_CONTENT);
+			sql.append(SQL.ORDER_FOR_SEARCH);
+			sql.append(SQL.LIMIT_FOR_SEARCH);			
+		}else if(articleDTO.getSearchType().equals("writer")) {
+			sql.append(SQL.WHERE_FOR_SEARCH_WRITER);
+			sql.append(SQL.ORDER_FOR_SEARCH);
+			sql.append(SQL.LIMIT_FOR_SEARCH);			
+		}
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql.toString());
+			psmt.setString(1, "%"+articleDTO.getKeyword()+"%");
+			psmt.setInt(2, start);
+			logger.debug(psmt.toString());
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				ArticleDTO dto = new ArticleDTO();
+				dto.setNo(rs.getInt(1));
+				dto.setCate(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setComment(rs.getInt(5));
+				dto.setFile(rs.getInt(6));
+				dto.setHit(rs.getInt(7));
+				dto.setWriter(rs.getString(8));
+				dto.setRegip(rs.getString(9));
+				dto.setWdate(rs.getString(10));
+				dto.setNick(rs.getString(11));
+				articles.add(dto);
+			}
+			closeAll();
+		}catch (Exception e) {
+			logger.error(e.getMessage());
+		}			
+		return articles;		
+	}
+	
+	
 	
 	public void updateArticle(ArticleDTO dto) {
 		

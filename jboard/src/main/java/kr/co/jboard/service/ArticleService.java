@@ -28,6 +28,17 @@ public enum ArticleService {
 		return dao.selectAllArticle(start);
 	}
 	
+	public int getCountArticleForSearch(ArticleDTO dto) {
+		return dao.selectCountArticleBySearch(dto);
+	}
+	
+	
+	public List<ArticleDTO> searchAllArticle(ArticleDTO dto, int start) {
+		return dao.selectAllArticleBySearch(dto, start);
+	}
+	
+	
+	
 	public void modifyArticle(ArticleDTO dto) {
 		dao.updateArticle(dto);
 	}
@@ -35,6 +46,9 @@ public enum ArticleService {
 	public void deleteArticle(int no) {
 		dao.deleteArticle(no);
 	}
+	
+	
+	
 	
 	// 마지막 페이지 번호 계산
 	public int getLastPageNum(int total) {
@@ -92,7 +106,6 @@ public enum ArticleService {
 		int start = (currentPage -1) * 10;
 		return total - start;
 	}
-	
 	
 	
 	
